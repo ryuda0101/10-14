@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 상세페이지</title>
+    <style>
+        /* text-overflow:clip;은 overflow:hidden;처럼 잘린 이미지는 그대로 안나오게 처리 */
+        /* text-overflow:ellipsis;는 뒤에 잘리는 문자는 ...으로 표시된다. 폰트에 따라 ¨처럼 위에 생기기도 ..처럼 아래에 생기기도 한다. */
+        .text {width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; border:1px solid red;}
+        /* 텍스트 들어갔을 때 공백 / 줄바꿈 / 띄어쓰기 처리에 관련된 부분 */
+        /* 아예 쓰지 않으면 white-space:normal;로 적용된다. */
+        /* white-space:normal; → 띄어쓰기도 병합되고 줄바꿈도 병합된다.(띄어쓰기를 여러번 해도 한번만 적용된다.) 가로사이즈에 막히면 자동으로 줄바꿈이 된다. */
+        /* white-space:nowrap; → 텍스트가 줄바꿈없이 그냥 한줄로 뜨는것. 띄어쓰기가 병합된다.(띄어쓰기를 여러번 해도 한번만 적용된다.)*/
+        /* white-space:pre; → 해당태그안에서 줄바꿈 띄어쓰기 같은것들이 유지된다. 띄어쓰기를 여러번 하면 여러번이 적용된다. */
+        .context {white-space:pre;}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="brd_detail">
+            <div>번호 <%- data.brdid %></div>
+            <div>제목 <%- data.brdtitle %></div>
+            <div class="context"><%- data.brdcontext %></div>
+            <div>작성자 <%- data.brdauther %></div>
+            <div>작성 날짜 <%- data.brddate %></div>
+            <div>조회수 <%- data.brdviews %></div>
+        </div>
+        <!-- /delete/게시글번호 -->
+        <a href="/list">목록</a>
+    </div>
+</body>
+</html>
