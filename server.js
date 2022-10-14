@@ -7,7 +7,8 @@ const moment = require("moment");
 const app = express();
 
 // 포트번호 변수로 세팅
-const port = 8080;
+const port = process.env.PORT || 8000;
+
 
 
 // ejs 태그를 사용하기 위한 세팅
